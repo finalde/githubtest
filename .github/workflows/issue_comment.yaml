@@ -33,7 +33,8 @@ jobs:
             -f body='
             Comment but from the API call not action'
         env:
-          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.html_url }}
           USER: ${{github.event.issue.user.login}}
           REPOSITORY: ${{github.event.repository.name}}
           ISSUE_NUMBER: ${{github.event.issue.number}}
