@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print
-        run: echo http://api.github.com/repo/${USER}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments
+        run: echo http://api.github.com/repos/${USER}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.html_url }}
@@ -37,7 +37,7 @@ jobs:
       - name: Create Comment with API
         run: |
           gh api -X POST \
-            http://api.github.com/repo/${USER}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
+            http://api.github.com/repos/${USER}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
             -f body='
             Comment but from the API call not action'
         env:
