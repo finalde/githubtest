@@ -26,6 +26,14 @@ jobs:
   comment-with-api:
     runs-on: ubuntu-latest
     steps:
+      - name: print
+        run: echo http://api.github.com/repo/${USER}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.html_url }}
+          USER: ${{github.event.issue.user.login}}
+          REPOSITORY: ${{github.event.repository.name}}
+          ISSUE_NUMBER: ${{github.event.issue.number}}
       - name: Create Comment with API
         run: |
           gh api -X POST \
