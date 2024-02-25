@@ -29,7 +29,7 @@ jobs:
       - name: print
         run: echo http://api.github.com/repos/${USER}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           ISSUE: ${{ github.event.issue.html_url }}
           USER: ${{github.event.issue.user.login}}
           REPOSITORY: ${{github.event.repository.name}}
@@ -43,7 +43,7 @@ jobs:
           /repos/${USER}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
           -f body='Me too' 
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           ISSUE: ${{ github.event.issue.html_url }}
           USER: ${{github.event.issue.user.login}}
           REPOSITORY: ${{github.event.repository.name}}
