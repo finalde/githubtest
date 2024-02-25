@@ -25,6 +25,7 @@ jobs:
   
   comment-with-api:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
       # - name: print
       #   run: echo http://api.github.com/repos/${USER}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments
